@@ -1167,6 +1167,10 @@ class Beautifier:
 
 
 def mkdir_p(path):
+    if path=='':
+        # Don't create directory if path is empty,
+        # which means file is located in current working directory
+        return
     try:
         os.makedirs(path)
     except OSError as exc: # Python >2.5
